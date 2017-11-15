@@ -1,0 +1,10 @@
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\bin\Debug\Petra Controller.exe.config
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\bin\Debug\Petra Controller.exe
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\bin\Debug\Petra Controller.pdb
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\obj\Debug\Petra Controller.csprojResolveAssemblyReference.cache
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\obj\Debug\Petra_Controller.PetraC.resources
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\obj\Debug\Petra_Controller.Properties.Resources.resources
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\obj\Debug\Petra Controller.csproj.GenerateResource.Cache
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\obj\Debug\Petra Controller.csproj.CoreCompileInputs.cache
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\obj\Debug\Petra Controller.exe
+C:\Users\capij\Desktop\Petra Controller\Petra Controller\obj\Debug\Petra Controller.pdb
