@@ -1,26 +1,4 @@
-/*
- * ServerPetraController.c
- * This file is part of <library name>
- *
- * Copyright (C) 2017 - Capitano Jonathan
- *
- * <library name> is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * <library name> is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with <library name>. If not, see <http://www.gnu.org/licenses/>.
- */
-
-// Compilation sous QNX: gcc ./ServerPetraController.c -l socket
-
-#include <stdlib.h>
+﻿#include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <time.h>
@@ -185,19 +163,25 @@ void* SendCapteurs(void* arg)
 
 	tim.tv_nsec = 5000;
 	
-    
+
     while(launched)
 	{ 
 	    
 		read(fd_petra_in, &u_capt.byte, 1);
-		/*u_capt.capt.L1 = 1;//essai -> Simule les valeurs retournées par le petra
-		u_capt.capt.L2 = 1;
-		u_capt.capt.T = 1;
-		u_capt.capt.S = 1;
-		u_capt.capt.CS = 1;
-		u_capt.capt.AP = 1;
-		u_capt.capt.PP = 1;
-		u_capt.capt.DE = 1;*/
+		
+		/*if((rand()%2) == 1)
+		{
+		    u_capt.capt.L1 = (rand()%2);//essai -> Simule les valeurs retournées par le petra
+		    u_capt.capt.L2 = (rand()%2);
+		    u_capt.capt.T = (rand()%2);
+		    u_capt.capt.S = (rand()%2);
+		    u_capt.capt.CS = (rand()%2);
+		    u_capt.capt.AP = (rand()%2);
+		    u_capt.capt.PP = (rand()%2);
+		    u_capt.capt.DE = (rand()%2);
+		}*/
+		sleep(2);
+		
 		char byte[8] ;
 		byte [0] = u_capt.capt.L1;
 		byte [1] = u_capt.capt.L2;
@@ -260,6 +244,7 @@ void *TraitementClient(void *arg)
 	    
 	    if(ReadEnable == 1)
 	    {
+	        
 	        printf("Quelqu'un s'occupe deja du Petra!\n");
 	        close(conn_desc);
 	        char byte[8] ;

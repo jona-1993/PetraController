@@ -36,6 +36,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
             this.ControlPanel = new System.Windows.Forms.Panel();
+            this.SendButton = new System.Windows.Forms.Button();
+            this.ShellTB = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.RailTrackBar = new System.Windows.Forms.TrackBar();
+            this.DECB = new System.Windows.Forms.CheckBox();
+            this.PPCB = new System.Windows.Forms.CheckBox();
+            this.APCB = new System.Windows.Forms.CheckBox();
+            this.CSCB = new System.Windows.Forms.CheckBox();
+            this.SCB = new System.Windows.Forms.CheckBox();
+            this.TCB = new System.Windows.Forms.CheckBox();
+            this.L2CB = new System.Windows.Forms.CheckBox();
+            this.L1CB = new System.Windows.Forms.CheckBox();
             this.CapteursLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.GrappinCB = new System.Windows.Forms.CheckBox();
@@ -44,16 +57,6 @@
             this.VentouseBrasCB = new System.Windows.Forms.CheckBox();
             this.Convoyeur2CB = new System.Windows.Forms.CheckBox();
             this.Convoyeur1CB = new System.Windows.Forms.CheckBox();
-            this.L1CB = new System.Windows.Forms.CheckBox();
-            this.L2CB = new System.Windows.Forms.CheckBox();
-            this.TCB = new System.Windows.Forms.CheckBox();
-            this.SCB = new System.Windows.Forms.CheckBox();
-            this.CSCB = new System.Windows.Forms.CheckBox();
-            this.APCB = new System.Windows.Forms.CheckBox();
-            this.PPCB = new System.Windows.Forms.CheckBox();
-            this.DECB = new System.Windows.Forms.CheckBox();
-            this.RailTrackBar = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
             this.ControlPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RailTrackBar)).BeginInit();
             this.SuspendLayout();
@@ -64,13 +67,14 @@
             this.IPTB.Name = "IPTB";
             this.IPTB.Size = new System.Drawing.Size(136, 20);
             this.IPTB.TabIndex = 0;
+            this.IPTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IPTB_KeyDown);
             // 
             // ConnectButton
             // 
             this.ConnectButton.Location = new System.Drawing.Point(203, 273);
             this.ConnectButton.Name = "ConnectButton";
             this.ConnectButton.Size = new System.Drawing.Size(75, 23);
-            this.ConnectButton.TabIndex = 1;
+            this.ConnectButton.TabIndex = 2;
             this.ConnectButton.Text = "Connexion";
             this.ConnectButton.UseVisualStyleBackColor = true;
             this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
@@ -80,7 +84,8 @@
             this.PortTF.Location = new System.Drawing.Point(177, 229);
             this.PortTF.Name = "PortTF";
             this.PortTF.Size = new System.Drawing.Size(100, 20);
-            this.PortTF.TabIndex = 2;
+            this.PortTF.TabIndex = 1;
+            this.PortTF.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PortTF_KeyDown);
             // 
             // label1
             // 
@@ -120,7 +125,7 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(202, 499);
+            this.CloseButton.Location = new System.Drawing.Point(203, 522);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 6;
@@ -131,6 +136,9 @@
             // ControlPanel
             // 
             this.ControlPanel.BackColor = System.Drawing.Color.Silver;
+            this.ControlPanel.Controls.Add(this.SendButton);
+            this.ControlPanel.Controls.Add(this.ShellTB);
+            this.ControlPanel.Controls.Add(this.label6);
             this.ControlPanel.Controls.Add(this.label5);
             this.ControlPanel.Controls.Add(this.RailTrackBar);
             this.ControlPanel.Controls.Add(this.DECB);
@@ -151,9 +159,135 @@
             this.ControlPanel.Controls.Add(this.Convoyeur1CB);
             this.ControlPanel.Location = new System.Drawing.Point(78, 67);
             this.ControlPanel.Name = "ControlPanel";
-            this.ControlPanel.Size = new System.Drawing.Size(325, 381);
+            this.ControlPanel.Size = new System.Drawing.Size(328, 421);
             this.ControlPanel.TabIndex = 7;
             this.ControlPanel.Visible = false;
+            // 
+            // SendButton
+            // 
+            this.SendButton.Location = new System.Drawing.Point(236, 380);
+            this.SendButton.Name = "SendButton";
+            this.SendButton.Size = new System.Drawing.Size(75, 23);
+            this.SendButton.TabIndex = 28;
+            this.SendButton.Text = "Envoyer";
+            this.SendButton.UseVisualStyleBackColor = true;
+            this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
+            // 
+            // ShellTB
+            // 
+            this.ShellTB.Location = new System.Drawing.Point(44, 383);
+            this.ShellTB.Name = "ShellTB";
+            this.ShellTB.Size = new System.Drawing.Size(175, 20);
+            this.ShellTB.TabIndex = 27;
+            this.ShellTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ShellTB_KeyDown);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(44, 352);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "Commandes:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(44, 301);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Transport de la pièce:";
+            // 
+            // RailTrackBar
+            // 
+            this.RailTrackBar.Location = new System.Drawing.Point(44, 320);
+            this.RailTrackBar.Maximum = 3;
+            this.RailTrackBar.Name = "RailTrackBar";
+            this.RailTrackBar.Size = new System.Drawing.Size(104, 45);
+            this.RailTrackBar.TabIndex = 24;
+            this.RailTrackBar.Scroll += new System.EventHandler(this.RailTrackBar_Scroll);
+            // 
+            // DECB
+            // 
+            this.DECB.AutoSize = true;
+            this.DECB.Location = new System.Drawing.Point(196, 227);
+            this.DECB.Name = "DECB";
+            this.DECB.Size = new System.Drawing.Size(41, 17);
+            this.DECB.TabIndex = 23;
+            this.DECB.Text = "DE";
+            this.DECB.UseVisualStyleBackColor = true;
+            // 
+            // PPCB
+            // 
+            this.PPCB.AutoSize = true;
+            this.PPCB.Location = new System.Drawing.Point(196, 203);
+            this.PPCB.Name = "PPCB";
+            this.PPCB.Size = new System.Drawing.Size(40, 17);
+            this.PPCB.TabIndex = 22;
+            this.PPCB.Text = "PP";
+            this.PPCB.UseVisualStyleBackColor = true;
+            // 
+            // APCB
+            // 
+            this.APCB.AutoSize = true;
+            this.APCB.Location = new System.Drawing.Point(196, 180);
+            this.APCB.Name = "APCB";
+            this.APCB.Size = new System.Drawing.Size(40, 17);
+            this.APCB.TabIndex = 21;
+            this.APCB.Text = "AP";
+            this.APCB.UseVisualStyleBackColor = true;
+            // 
+            // CSCB
+            // 
+            this.CSCB.AutoSize = true;
+            this.CSCB.Location = new System.Drawing.Point(196, 157);
+            this.CSCB.Name = "CSCB";
+            this.CSCB.Size = new System.Drawing.Size(40, 17);
+            this.CSCB.TabIndex = 20;
+            this.CSCB.Text = "CS";
+            this.CSCB.UseVisualStyleBackColor = true;
+            // 
+            // SCB
+            // 
+            this.SCB.AutoSize = true;
+            this.SCB.Location = new System.Drawing.Point(196, 134);
+            this.SCB.Name = "SCB";
+            this.SCB.Size = new System.Drawing.Size(33, 17);
+            this.SCB.TabIndex = 19;
+            this.SCB.Text = "S";
+            this.SCB.UseVisualStyleBackColor = true;
+            // 
+            // TCB
+            // 
+            this.TCB.AutoSize = true;
+            this.TCB.Location = new System.Drawing.Point(196, 111);
+            this.TCB.Name = "TCB";
+            this.TCB.Size = new System.Drawing.Size(33, 17);
+            this.TCB.TabIndex = 18;
+            this.TCB.Text = "T";
+            this.TCB.UseVisualStyleBackColor = true;
+            // 
+            // L2CB
+            // 
+            this.L2CB.AutoSize = true;
+            this.L2CB.Location = new System.Drawing.Point(196, 88);
+            this.L2CB.Name = "L2CB";
+            this.L2CB.Size = new System.Drawing.Size(38, 17);
+            this.L2CB.TabIndex = 17;
+            this.L2CB.Text = "L2";
+            this.L2CB.UseVisualStyleBackColor = true;
+            // 
+            // L1CB
+            // 
+            this.L1CB.AutoSize = true;
+            this.L1CB.Location = new System.Drawing.Point(196, 65);
+            this.L1CB.Name = "L1CB";
+            this.L1CB.Size = new System.Drawing.Size(38, 17);
+            this.L1CB.TabIndex = 16;
+            this.L1CB.Text = "L1";
+            this.L1CB.UseVisualStyleBackColor = true;
+            this.L1CB.MouseDown += new System.Windows.Forms.MouseEventHandler(this.L1CB_MouseDown);
             // 
             // CapteursLabel
             // 
@@ -222,9 +356,9 @@
             this.Convoyeur2CB.AutoSize = true;
             this.Convoyeur2CB.Location = new System.Drawing.Point(47, 102);
             this.Convoyeur2CB.Name = "Convoyeur2CB";
-            this.Convoyeur2CB.Size = new System.Drawing.Size(86, 17);
+            this.Convoyeur2CB.Size = new System.Drawing.Size(101, 17);
             this.Convoyeur2CB.TabIndex = 1;
-            this.Convoyeur2CB.Text = "Convoyeur 2";
+            this.Convoyeur2CB.Text = "Convoyeur haut";
             this.Convoyeur2CB.UseVisualStyleBackColor = true;
             this.Convoyeur2CB.CheckedChanged += new System.EventHandler(this.Convoyeur2CB_CheckedChanged);
             // 
@@ -233,117 +367,11 @@
             this.Convoyeur1CB.AutoSize = true;
             this.Convoyeur1CB.Location = new System.Drawing.Point(47, 65);
             this.Convoyeur1CB.Name = "Convoyeur1CB";
-            this.Convoyeur1CB.Size = new System.Drawing.Size(86, 17);
+            this.Convoyeur1CB.Size = new System.Drawing.Size(97, 17);
             this.Convoyeur1CB.TabIndex = 0;
-            this.Convoyeur1CB.Text = "Convoyeur 1";
+            this.Convoyeur1CB.Text = "Convoyeur bas";
             this.Convoyeur1CB.UseVisualStyleBackColor = true;
             this.Convoyeur1CB.CheckedChanged += new System.EventHandler(this.Convoyeur1CB_CheckedChanged);
-            // 
-            // L1CB
-            // 
-            this.L1CB.AutoSize = true;
-            this.L1CB.Enabled = false;
-            this.L1CB.Location = new System.Drawing.Point(196, 65);
-            this.L1CB.Name = "L1CB";
-            this.L1CB.Size = new System.Drawing.Size(38, 17);
-            this.L1CB.TabIndex = 16;
-            this.L1CB.Text = "L1";
-            this.L1CB.UseVisualStyleBackColor = true;
-            // 
-            // L2CB
-            // 
-            this.L2CB.AutoSize = true;
-            this.L2CB.Enabled = false;
-            this.L2CB.Location = new System.Drawing.Point(196, 88);
-            this.L2CB.Name = "L2CB";
-            this.L2CB.Size = new System.Drawing.Size(38, 17);
-            this.L2CB.TabIndex = 17;
-            this.L2CB.Text = "L2";
-            this.L2CB.UseVisualStyleBackColor = true;
-            // 
-            // TCB
-            // 
-            this.TCB.AutoSize = true;
-            this.TCB.Enabled = false;
-            this.TCB.Location = new System.Drawing.Point(196, 111);
-            this.TCB.Name = "TCB";
-            this.TCB.Size = new System.Drawing.Size(33, 17);
-            this.TCB.TabIndex = 18;
-            this.TCB.Text = "T";
-            this.TCB.UseVisualStyleBackColor = true;
-            // 
-            // SCB
-            // 
-            this.SCB.AutoSize = true;
-            this.SCB.Enabled = false;
-            this.SCB.Location = new System.Drawing.Point(196, 134);
-            this.SCB.Name = "SCB";
-            this.SCB.Size = new System.Drawing.Size(33, 17);
-            this.SCB.TabIndex = 19;
-            this.SCB.Text = "S";
-            this.SCB.UseVisualStyleBackColor = true;
-            // 
-            // CSCB
-            // 
-            this.CSCB.AutoSize = true;
-            this.CSCB.Enabled = false;
-            this.CSCB.Location = new System.Drawing.Point(196, 157);
-            this.CSCB.Name = "CSCB";
-            this.CSCB.Size = new System.Drawing.Size(40, 17);
-            this.CSCB.TabIndex = 20;
-            this.CSCB.Text = "CS";
-            this.CSCB.UseVisualStyleBackColor = true;
-            // 
-            // APCB
-            // 
-            this.APCB.AutoSize = true;
-            this.APCB.Enabled = false;
-            this.APCB.Location = new System.Drawing.Point(196, 180);
-            this.APCB.Name = "APCB";
-            this.APCB.Size = new System.Drawing.Size(40, 17);
-            this.APCB.TabIndex = 21;
-            this.APCB.Text = "AP";
-            this.APCB.UseVisualStyleBackColor = true;
-            // 
-            // PPCB
-            // 
-            this.PPCB.AutoSize = true;
-            this.PPCB.Enabled = false;
-            this.PPCB.Location = new System.Drawing.Point(196, 203);
-            this.PPCB.Name = "PPCB";
-            this.PPCB.Size = new System.Drawing.Size(40, 17);
-            this.PPCB.TabIndex = 22;
-            this.PPCB.Text = "PP";
-            this.PPCB.UseVisualStyleBackColor = true;
-            // 
-            // DECB
-            // 
-            this.DECB.AutoSize = true;
-            this.DECB.Enabled = false;
-            this.DECB.Location = new System.Drawing.Point(196, 227);
-            this.DECB.Name = "DECB";
-            this.DECB.Size = new System.Drawing.Size(41, 17);
-            this.DECB.TabIndex = 23;
-            this.DECB.Text = "DE";
-            this.DECB.UseVisualStyleBackColor = true;
-            // 
-            // RailTrackBar
-            // 
-            this.RailTrackBar.Location = new System.Drawing.Point(44, 320);
-            this.RailTrackBar.Maximum = 3;
-            this.RailTrackBar.Name = "RailTrackBar";
-            this.RailTrackBar.Size = new System.Drawing.Size(104, 45);
-            this.RailTrackBar.TabIndex = 24;
-            this.RailTrackBar.Scroll += new System.EventHandler(this.RailTrackBar_Scroll);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(44, 301);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 13);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Transport de la pièce:";
             // 
             // PetraC
             // 
@@ -367,6 +395,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Petra Controller";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PetraC_FormClosing);
+            this.Load += new System.EventHandler(this.PetraC_Load);
             this.ControlPanel.ResumeLayout(false);
             this.ControlPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RailTrackBar)).EndInit();
@@ -403,6 +432,9 @@
         private System.Windows.Forms.CheckBox L1CB;
         private System.Windows.Forms.TrackBar RailTrackBar;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button SendButton;
+        private System.Windows.Forms.TextBox ShellTB;
     }
 }
 
