@@ -552,9 +552,15 @@ namespace Petra_Controller
             switch (test)
             {
                 case 1:
-                    Translation("while CS == false: start convoyeur bas && while CS == true: start convoyeur bas && stop convoyeur bas && sleep 1000 && pincer start && changer start && sleep 1000 && start Convoyeur haut && pincer stop && Sleep 500 && changer stop && while L1 == false: start convoyeur haut && stop convoyeur haut");
+                    Translation("while S == false: start convoyeur bas && while S == true: start convoyeur bas && sleep 500 && stop convoyeur bas && sleep 1000 && pincer start && while AP != true: changer start && start Convoyeur haut && sleep 800 && pincer stop && Sleep 500 && changer stop && while L2 == false: start convoyeur haut && stop convoyeur haut");
                     break;
-                case 2: Translation("prendre start && sleep 5000 && accrocher start && prendre stop && déplacer 1 && sleep 5000 && déplacer 2 && sleep 5000 && déplacer 3 && sleep 5000 && déplacer 0 && sleep 5000 && accrocher stop");
+                case 2: Translation("prendre start && sleep 1000 && accrocher start && Sleep 500 && prendre stop && Sleep 1000 && déplacer 1 && sleep 4000 && déplacer 2 && sleep 4000 && déplacer 3 && sleep 4000 && déplacer 0 && sleep 7000 && accrocher stop");
+                    break;
+                case 3: Translation("prendre start && sleep 1000 && accrocher start && Sleep 500 && prendre stop && Sleep 1000 && déplacer 1 && accrocher stop && déplacer 0 && while S == false: start convoyeur bas && while S == true: start convoyeur bas && sleep 500 && stop convoyeur bas && sleep 1000 && pincer start && while AP != true: changer start && start Convoyeur haut && sleep 800 && pincer stop && Sleep 500 && changer stop && while L2 == false: start convoyeur haut && stop convoyeur haut");
+                    break;
+                case 4: Translation("déplacer 3 && while L2 == false: start convoyeur haut && while L2 == true: start convoyeur haut && sleep 500 && stop convoyeur haut && prendre start && accrocher start && prendre stop && déplacer 0 && sleep 7000 && accrocher stop");
+                    break;
+                case 5: Translation("pincer start && while (AP != true): changer start && if (AP == true): changer stop && sleep 1000 && pincer stop");
                     break;
             }
         }
@@ -600,6 +606,18 @@ namespace Petra_Controller
                     else if (cmds.ElementAt(i).Trim().ToLower().Contains("2"))
                     {
                         Test(2);
+                    }
+                    else if (cmds.ElementAt(i).Trim().ToLower().Contains("3"))
+                    {
+                        Test(3);
+                    }
+                    else if (cmds.ElementAt(i).Trim().ToLower().Contains("4"))
+                    {
+                        Test(4);
+                    }
+                    else if (cmds.ElementAt(i).Trim().ToLower().Contains("5"))
+                    {
+                        Test(5);
                     }
                 }
                 if (cmds.ElementAt(i).Trim().ToLower().Contains("while"))
